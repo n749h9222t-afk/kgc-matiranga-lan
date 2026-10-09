@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KGC x MATIRANGA LAN TOUR ORG</title>
+<style>
+body{margin:0;background:#0b101a;color:#fff;font-family:Arial,sans-serif;padding:16px}
+main{max-width:650px;margin:auto}
+header,section{background:#151e2d;border:1px solid #334155;border-radius:16px;padding:18px;margin-bottom:14px}
+header{text-align:center;border-top:4px solid #ff4655}
+h1{font-size:28px}h1 span{color:#ff4655}
+.price{font-size:22px;color:#5cff9d;font-weight:bold}
+label{display:block;margin-top:12px;font-size:14px}
+input,textarea{box-sizing:border-box;width:100%;padding:12px;margin-top:5px;border:1px solid #475569;border-radius:8px;background:#0b101a;color:white;font-size:16px}
+button{width:100%;padding:15px;margin-top:18px;border:0;border-radius:10px;background:#25d366;color:#062b16;font-weight:bold;font-size:16px}
+.player{border-top:1px solid #334155;margin-top:12px;padding-top:8px}
+</style>
+</head>
+<body><main>
+<header><p>FREE FIRE LAN TOURNAMENT</p><h1>KGC × <span>MATIRANGA</span><br>LAN TOUR ORG</h1><p>আপনার টিমের স্লট রেজিস্ট্রেশন করুন</p><div class="price">প্রতি স্লট ৳২৪</div></header>
+<form id="f">
+<section><h2>টিমের তথ্য</h2>
+<label>Team Name *</label><input id="team" required>
+<label>Team Short Name *</label><input id="short" required>
+<label>Creator / Owner *</label><input id="owner" required>
+<label>Captain Name *</label><input id="captain" required></section>
+<section><h2>খেলোয়াড়দের তথ্য</h2><div id="players"></div>
+<label>Substitute Name</label><input id="sub">
+<label>Substitute UID</label><input id="subuid" inputmode="numeric"></section>
+<section><h2>যোগাযোগ</h2>
+<label>Contact Number *</label><input id="contact" required type="tel">
+<label>District / Area *</label><input id="area" required>
+<label>অতিরিক্ত তথ্য</label><textarea id="note" rows="3"></textarea>
+<button type="submit">WhatsApp-এ Registration পাঠান</button>
+<p style="font-size:12px;color:#b7c2d3">Submit করার পর WhatsApp খুললে মেসেজটি দেখে Send চাপুন।</p></section>
+</form></main>
+<script>
+for(let i=1;i<=4;i++){document.getElementById('players').insertAdjacentHTML('beforeend','<div class="player"><h3>Player '+i+'</h3><label>In-game Name *</label><input id="n'+i+'" required><label>UID *</label><input id="u'+i+'" inputmode="numeric" required></div>')}
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();const v=id=>document.getElementById(id).value.trim();let m='KGC x MATIRANGA LAN TOUR ORG - SLOT REGISTRATION\nSlot Price: ৳24\n\nTeam: '+v('team')+' ('+v('short')+')\nOwner: '+v('owner')+'\nCaptain: '+v('captain')+'\n';for(let i=1;i<=4;i++)m+='Player '+i+': '+v('n'+i)+' | UID: '+v('u'+i)+'\n';m+='Substitute: '+(v('sub')||'N/A')+' | UID: '+(v('subuid')||'N/A')+'\nContact: '+v('contact')+'\nArea: '+v('area')+'\nExtra: '+v('note');location.href='https://wa.me/8801619749207?text='+encodeURIComponent(m)});
+</script>
+</body></html>
